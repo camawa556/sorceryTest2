@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
-  skip_before_action :login_required,only: :index
+  skip_before_action :login_required, only: :index
   # GET /posts
   def index
     @posts = Post.all
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new(post_params.merge(user_id:current_user.id))
+    @post = Post.new(post_params.merge(user_id: current_user.id))
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
     else
