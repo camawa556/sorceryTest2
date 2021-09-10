@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
-  skip_before_action :login_required, only: :index
+  # skip_before_action :login_required, only: :index
   # GET /posts
   def index
     @posts = Post.all
